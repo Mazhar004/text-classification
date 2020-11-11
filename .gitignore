@@ -127,3 +127,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#Vscode
+.vscode/ 
+
+# Custom Files
+ml/model_files/model_dataset/
+ml/model_files/model_weight/
+ml/model_files/previous_version/
