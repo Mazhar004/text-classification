@@ -1,0 +1,28 @@
+[
+  {
+    "text": "play burj khalifa song",
+    "entities": [
+      {
+        "start": 5,
+        "end": 17,
+        "value": "burj khalifa",
+        "entity": "key_name"
+      },
+      {
+        "start": 18,
+        "end": 22,
+        "value": "song",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 10,
+        "end": 17,
+        "value": "khalifa",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]

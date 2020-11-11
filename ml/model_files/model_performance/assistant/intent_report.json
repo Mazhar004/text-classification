@@ -1,0 +1,69 @@
+{
+  "translate": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2,
+    "confused_with": {
+      "google": 2
+    }
+  },
+  "location": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1,
+    "confused_with": {
+      "drive": 1
+    }
+  },
+  "youtube": {
+    "precision": 0.5,
+    "recall": 0.5,
+    "f1-score": 0.5,
+    "support": 2,
+    "confused_with": {
+      "google": 1
+    }
+  },
+  "drive": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 3,
+    "confused_with": {
+      "google": 2,
+      "gmail": 1
+    }
+  },
+  "gmail": {
+    "precision": 0.6666666666666666,
+    "recall": 0.5,
+    "f1-score": 0.5714285714285715,
+    "support": 4,
+    "confused_with": {
+      "youtube": 1,
+      "location": 1
+    }
+  },
+  "google": {
+    "precision": 0.375,
+    "recall": 1.0,
+    "f1-score": 0.5454545454545454,
+    "support": 3,
+    "confused_with": {}
+  },
+  "accuracy": 0.4,
+  "macro avg": {
+    "precision": 0.2569444444444444,
+    "recall": 0.3333333333333333,
+    "f1-score": 0.2694805194805195,
+    "support": 15
+  },
+  "weighted avg": {
+    "precision": 0.3194444444444444,
+    "recall": 0.4,
+    "f1-score": 0.3281385281385282,
+    "support": 15
+  }
+}

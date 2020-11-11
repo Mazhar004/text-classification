@@ -1,0 +1,23 @@
+# Configuration for Rasa NLU.
+language: en
+
+pipeline:
+  - name: SpacyNLP
+  - name: SpacyTokenizer
+  - name: SpacyFeaturizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: "char_wb"
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    epochs: 100
+    evaluate_on_number_of_examples: 15
+    evaluate_every_number_of_epochs: 1
+    tensorboard_log_directory: "model_files/model_weight/tensorboard/assistant"
+    tensorboard_log_level: "epoch"
+  - name: EntitySynonymMapper
+  - name: ResponseSelector
+    epochs: 100
