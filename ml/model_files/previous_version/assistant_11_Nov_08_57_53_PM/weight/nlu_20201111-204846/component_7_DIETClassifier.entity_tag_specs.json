@@ -1,0 +1,36 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-key_name",
+      "2": "I-key_name",
+      "3": "L-key_name",
+      "4": "U-key_name",
+      "5": "B-key_place",
+      "6": "I-key_place",
+      "7": "L-key_place",
+      "8": "U-key_place",
+      "9": "B-key_word",
+      "10": "I-key_word",
+      "11": "L-key_word",
+      "12": "U-key_word",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-key_name": 1,
+      "I-key_name": 2,
+      "L-key_name": 3,
+      "U-key_name": 4,
+      "B-key_place": 5,
+      "I-key_place": 6,
+      "L-key_place": 7,
+      "U-key_place": 8,
+      "B-key_word": 9,
+      "I-key_word": 10,
+      "L-key_word": 11,
+      "U-key_word": 12,
+      "O": 0
+    },
+    "num_tags": 13
+  }
+]

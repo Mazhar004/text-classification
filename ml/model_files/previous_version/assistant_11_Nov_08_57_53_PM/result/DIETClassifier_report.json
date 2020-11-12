@@ -1,0 +1,38 @@
+{
+  "key_word": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 4
+  },
+  "key_place": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1
+  },
+  "key_name": {
+    "precision": 0.5,
+    "recall": 0.07142857142857142,
+    "f1-score": 0.125,
+    "support": 14
+  },
+  "micro avg": {
+    "precision": 0.16666666666666666,
+    "recall": 0.05263157894736842,
+    "f1-score": 0.08,
+    "support": 19
+  },
+  "macro avg": {
+    "precision": 0.16666666666666666,
+    "recall": 0.023809523809523808,
+    "f1-score": 0.041666666666666664,
+    "support": 19
+  },
+  "weighted avg": {
+    "precision": 0.3684210526315789,
+    "recall": 0.05263157894736842,
+    "f1-score": 0.09210526315789473,
+    "support": 19
+  }
+}
