@@ -1,8 +1,14 @@
-# Configuration for Rasa NLU.
+# Configuration for Rasa NLU (Rasa 3.x schema).
+recipe: default.v1
+assistant_id: assistant
+
 language: en
 
 pipeline:
   - name: SpacyNLP
+    # spaCy 3 removed `spacy link`, so the model is named directly here
+    # instead of being aliased to "en".
+    model: "en_core_web_md"
   - name: SpacyTokenizer
   - name: SpacyFeaturizer
   - name: RegexFeaturizer
@@ -14,10 +20,12 @@ pipeline:
     max_ngram: 4
   - name: DIETClassifier
     epochs: 100
+    # Recommended since Rasa 2.x: better-calibrated confidence scores.
+    constrain_similarities: true
     evaluate_on_number_of_examples: 15
     evaluate_every_number_of_epochs: 1
     tensorboard_log_directory: "model_files/model_weight/tensorboard/assistant"
     tensorboard_log_level: "epoch"
   - name: EntitySynonymMapper
-  - name: ResponseSelector
-    epochs: 100
+# ResponseSelector was dropped: this dataset has no retrieval intents
+# (`intent/response` pairs), so it only added training time.

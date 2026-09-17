@@ -135,3 +135,18 @@ dmypy.json
 #ml/model_files/model_dataset/
 #ml/model_files/model_weight/
 #ml/model_files/previous_version/
+
+# Rasa
+.rasa/
+ml/.rasa/
+
+# Agent tooling scratch state (not part of the project)
+.claude-flow/
+ml/.claude-flow/
+ruvector.db
+ml/ruvector.db
+.swarm/
+ml/.swarm/
+
+# TensorBoard run logs (regenerated on every train)
+ml/model_files/model_weight/tensorboard/

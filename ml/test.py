@@ -1,29 +1,22 @@
 import argparse
 import os
 
-# RASA
-from rasa.nlu import test
-
 # Custom
-from processing.custom.get_model import get_model
+import paths
+from processing.custom.cli import add_split_argument
+from processing.custom.evaluate import evaluate
 
 
 def custom_test(dataset, split):
-    if split:
-        data_path = 'model_files/model_dataset/data/' + \
-            dataset+'/train_test_split/test_data.md'
-    else:
-        data_path = 'model_files/model_dataset/data/'+dataset
-    model_path = 'model_files/model_weight/' + dataset
-    output_path = 'model_files/model_performance/' + dataset
+    nlu_data = paths.test_data_file(
+        dataset) if split else paths.nlu_file(dataset)
+    if not nlu_data.exists():
+        raise FileNotFoundError(
+            'Evaluation data not found: {}\nRun train.py{} first.'.format(
+                nlu_data, ' --split' if split else ''))
 
-    os.makedirs('model_files/model_performance/', exist_ok=True)
-    os.makedirs(output_path, exist_ok=True)
-
-    model_folder = get_model(model_path)
-
-    test(data_path, model_folder, output_path, successes=True,
-         errors=True, confmat='confmat.png', histogram='hist.png')
+    evaluate(paths.weight_dir(dataset), nlu_data,
+             paths.performance_dir(dataset))
 
 
 if __name__ == '__main__':
@@ -31,7 +24,9 @@ if __name__ == '__main__':
 
     parser.add_argument("--dataset", default='assistant', required=False,
                         type=str, help="Name of the dataset")
-    parser.add_argument("--split", default=False, required=False,
-                        type=bool, help="Data split")
+    add_split_argument(parser, "Evaluate on the held-out test split "
+                               "instead of the full dataset")
     args = parser.parse_args()
+
+    os.chdir(paths.ML_DIR)
     custom_test(args.dataset, args.split)

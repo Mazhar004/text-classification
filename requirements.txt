@@ -1,6 +1,22 @@
-rasa==1.10.14
-spacy==2.3.2
-gast==0.2.2
-numpy<1.19.0
-Flask_Cors==3.0.9
-pandas==1.1.2
+# ---------------------------------------------------------------------------
+# Runtime dependencies
+#
+# Python: >=3.8,<3.11 (3.10 recommended) -- upper bound is imposed by Rasa.
+# Install with:  pip install -r requirements.txt
+# ---------------------------------------------------------------------------
+
+# Rasa NLU. 3.6.21 is the latest Apache-2.0 Rasa Open Source release and the
+# one that patches:
+#   * CVE-2024-49375 (CRITICAL) remote code execution via remote model loading
+#   * CVE-2021-41127 (HIGH)     arbitrary file write from a crafted model archive
+# The [spacy] extra pulls in a spaCy version compatible with this Rasa release.
+rasa[spacy]==3.6.21
+
+# HTTP API layer. Kept independent of Rasa's own Sanic server.
+# Flask-Cors >=6.0 fixes CVE-2024-6221, CVE-2024-1681, CVE-2024-6839,
+# CVE-2024-6844 and CVE-2024-6866.
+Flask>=3.1.3,<4
+Flask-Cors>=6.0.5,<7
+
+# CSV <-> training-data conversion and prediction reports.
+pandas>=2.0,<3

@@ -1,82 +1,65 @@
-import asyncio
 import argparse
-import json
 import os
+
 import pandas as pd
 
-
 # RASA
-from rasa.cli.utils import print_success
-from rasa.core.interpreter import INTENT_MESSAGE_PREFIX, RegexInterpreter
-from rasa.nlu.model import Interpreter
+from rasa.shared.utils.cli import print_success
 
 # Custom
-from processing.custom.get_model import get_model
+import paths
+from api_inference import collect_entities, sen_filter
+from processing.custom.cli import configure_logging
+from processing.custom.nlu_model import NluModel
 
-
-def predict_json_form(ml_prediction):
-    nlp_data = {}
-    nlp_data['intent'] = ml_prediction['intent']['name']
-    nlp_data['confidence'] = round(ml_prediction['intent']['confidence'], 2)
-    nlp_data['entities'] = {}
-    for i in ml_prediction["entities"]:
-        try:
-            nlp_data['entities'][i['entity']].append(i['value'])
-        except:
-            nlp_data['entities'][i['entity']] = [i['value']]
-    return nlp_data
+COLUMNS = ["Query", "Intent", "Entities", "Confidence"]
 
 
 def text_write(new_data, output_file):
-    with open(output_file, 'w') as fh:
+    with open(output_file, 'w', encoding='utf-8') as fh:
         text_data = '\n\n'.join([', '.join(i) for i in new_data])
-        fh.write(text_data)
+        fh.write(text_data + '\n')
 
 
 def csv_write(new_data, output_file):
-    df = pd.DataFrame(new_data, columns=[
-                      "Query", "Intent", "Entities", "Confidence"])
+    df = pd.DataFrame(new_data, columns=COLUMNS)
     df.to_csv(output_file, index=False)
 
 
 def run_inference(model_path, input_file, output_file):
-    interpreter = Interpreter.load(model_path)
-    regex_interpreter = RegexInterpreter()
+    model = NluModel(model_path)
 
-    print_success(
-        "NLU model loaded. Type a message and press enter to parse it.")
-    nlp_data = {}
-    with open(input_file, 'r') as fh:
-        data = fh.readlines()
-        new_data = []
-        for i in data:
-            message = i.lower().strip()
+    print_success("NLU model loaded. Predicting queries from {}".format(
+        input_file))
+
+    new_data = []
+    with open(input_file, 'r', encoding='utf-8') as fh:
+        for line in fh:
+            message = sen_filter(line)
             if message == "":
                 continue
-            if message.startswith(INTENT_MESSAGE_PREFIX):
-                loop = asyncio.get_event_loop()
-                result = loop.run_until_complete(
-                    regex_interpreter.parse(message))
-            else:
-                result = interpreter.parse(message)
 
-            output = {key: result[key]
-                      for key in result.keys() & {'intent', 'entities'}}
+            result = model.parse(message)
 
-            nlp_data[message] = predict_json_form(output)
+            entities = '||'.join(
+                '{}:{}'.format(name, value)
+                for name, values in collect_entities(result).items()
+                for value in values)
+            intent = result.get('intent') or {}
+            confidence = float(intent.get('confidence') or 0.0)
 
-            entities = '||'.join(([i['entity'] + ':' + i['value']
-                                   for i in output["entities"]]))
-            intent = output['intent']['name']
-            confidence = output['intent']['confidence']
-            new_data.append([message, intent, entities, str(
-                round(confidence, 2))])
-        new_data = sorted(new_data, key=lambda x: (x[1], x[-1]))
+            new_data.append([message, intent.get('name'), entities,
+                             str(round(confidence, 2))])
 
-        if '.csv' in output_file.lower():
-            csv_write(new_data, output_file)
-        else:
-            text_write(new_data, output_file)
+    new_data = sorted(new_data, key=lambda x: (x[1] or '', x[-1]))
+
+    if str(output_file).lower().endswith('.csv'):
+        csv_write(new_data, output_file)
+    else:
+        text_write(new_data, output_file)
+
+    print_success("{} predictions written to {}".format(
+        len(new_data), output_file))
 
 
 if __name__ == '__main__':
@@ -89,9 +72,9 @@ if __name__ == '__main__':
     parser.add_argument("--out", default='predict_list.txt', required=False,
                         type=str, help="Path of the output file")
     args = parser.parse_args()
-    args.inp = 'query_predict/' + args.inp
-    args.out = 'query_predict/' + args.out
 
-    model_path = 'model_files/model_weight/' + args.dataset
-    model_folder = get_model(model_path)
-    run_inference(model_folder, args.inp, args.out)
+    os.chdir(paths.ML_DIR)
+    configure_logging()
+    run_inference(paths.weight_dir(args.dataset),
+                  paths.QUERY_DIR / args.inp,
+                  paths.QUERY_DIR / args.out)

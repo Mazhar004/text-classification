@@ -1,5 +1,35 @@
 [
   {
+    "text": "search for usa vote",
+    "entities": [
+      {
+        "start": 11,
+        "end": 14,
+        "value": "usa",
+        "entity": "key_name"
+      },
+      {
+        "start": 15,
+        "end": 19,
+        "value": "vote",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 11,
+        "end": 14,
+        "confidence_entity": 0.7826122045516968,
+        "value": "usa",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
     "text": "convert bangladeshi taka to dollar",
     "entities": [
       {
@@ -23,177 +53,80 @@
     ],
     "predicted_entities": [
       {
-        "entity": "key_place",
+        "entity": "key_word",
         "start": 8,
         "end": 19,
+        "confidence_entity": 0.8918197154998779,
         "value": "bangladeshi",
         "extractor": "DIETClassifier"
       }
     ]
   },
   {
-    "text": "top earning movie",
+    "text": "3 idiots trailer",
     "entities": [
       {
         "start": 0,
-        "end": 3,
-        "value": "top",
-        "entity": "key_name"
-      },
-      {
-        "start": 4,
-        "end": 11,
-        "value": "earning",
-        "entity": "key_name"
-      },
-      {
-        "start": 12,
-        "end": 17,
-        "value": "movie",
-        "entity": "key_name"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "key_place",
-        "start": 12,
-        "end": 17,
-        "value": "movie",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "tell me about bill gates",
-    "entities": [
-      {
-        "start": 14,
-        "end": 24,
-        "value": "bill gates",
-        "entity": "key_name"
-      }
-    ],
-    "predicted_entities": []
-  },
-  {
-    "text": "play burj khalifa song",
-    "entities": [
-      {
-        "start": 5,
-        "end": 17,
-        "value": "burj khalifa",
-        "entity": "key_name"
-      },
-      {
-        "start": 18,
-        "end": 22,
-        "value": "song",
-        "entity": "key_name"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "key_name",
-        "start": 10,
-        "end": 17,
-        "value": "khalifa",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "play new hindi song",
-    "entities": [
-      {
-        "start": 5,
         "end": 8,
-        "value": "new",
+        "value": "3 idiots",
         "entity": "key_name"
       },
       {
         "start": 9,
-        "end": 14,
-        "value": "hindi",
+        "end": 16,
+        "value": "trailer",
         "entity": "key_name"
-      },
-      {
-        "start": 15,
-        "end": 19,
-        "value": "song",
-        "entity": "key_name"
-      }
-    ],
-    "predicted_entities": [
-      {
-        "entity": "key_place",
-        "start": 9,
-        "end": 14,
-        "value": "hindi",
-        "extractor": "DIETClassifier"
-      }
-    ]
-  },
-  {
-    "text": "translate flabourgastre word to bengali",
-    "entities": [
-      {
-        "start": 10,
-        "end": 23,
-        "value": "flabourgastre",
-        "entity": "key_word"
-      },
-      {
-        "start": 32,
-        "end": 39,
-        "value": "bengali",
-        "entity": "key_word"
-      }
-    ],
-    "predicted_entities": []
-  },
-  {
-    "text": "meaning of rust in hindi",
-    "entities": [
-      {
-        "start": 11,
-        "end": 15,
-        "value": "rust",
-        "entity": "key_word"
-      },
-      {
-        "start": 19,
-        "end": 24,
-        "value": "hindi",
-        "entity": "key_word"
       }
     ],
     "predicted_entities": [
       {
         "entity": "key_name",
-        "start": 11,
-        "end": 15,
-        "value": "rust",
+        "start": 0,
+        "end": 1,
+        "confidence_entity": 0.8028022646903992,
+        "value": "3",
         "extractor": "DIETClassifier"
       },
       {
-        "entity": "key_place",
-        "start": 19,
-        "end": 24,
-        "value": "hindi",
-        "extractor": "DIETClassifier"
+        "entity": "key_name",
+        "start": 9,
+        "end": 16,
+        "confidence_entity": 0.9994966983795166,
+        "value": "trailer",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
       }
     ]
   },
   {
-    "text": "locate khulna",
+    "text": "can you give me the direction of dhaka university",
     "entities": [
       {
-        "start": 7,
-        "end": 13,
-        "value": "khulna",
+        "start": 33,
+        "end": 49,
+        "value": "dhaka university",
         "entity": "key_place"
       }
     ],
-    "predicted_entities": []
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 33,
+        "end": 38,
+        "confidence_entity": 0.8032288551330566,
+        "value": "dhaka",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "key_name",
+        "start": 39,
+        "end": 49,
+        "confidence_entity": 0.6643441915512085,
+        "value": "university",
+        "extractor": "DIETClassifier"
+      }
+    ]
   }
 ]
