@@ -1,59 +1,61 @@
 import argparse
-import shutil
 import os
+import shutil
+import subprocess
+import sys
 
 # RASA
-from rasa.nlu import load_data
-from rasa.nlu.model import Trainer
-from rasa.nlu import config
-from rasa.nlu import test
+from rasa.model_training import train_nlu
 
 # Custom
+import paths
+from processing.custom.cli import add_split_argument
+from processing.custom.evaluate import evaluate
 from processing.pre_process.format_data import DataLoad
 
 
+def data_prepare(dataset, split):
+    """Rebuild the YAML training data from the CSV, optionally splitting it."""
+    data_dir = paths.data_dir(dataset)
+    shutil.rmtree(data_dir, ignore_errors=True)
+
+    DataLoad(paths.csv_file(dataset), data_dir)
+
+    if split:
+        # A list argument (rather than os.system with an interpolated string)
+        # keeps a dataset name from being interpreted by the shell.
+        subprocess.run(
+            [sys.executable, '-m', 'rasa', 'data', 'split', 'nlu',
+             '--nlu', str(paths.nlu_file(dataset)),
+             '--out', str(paths.split_dir(dataset))],
+            check=True)
+
+
 def train(dataset, split):
-    if split:
-        training_data = load_data(
-            'model_files/model_dataset/data/'+dataset+'/train_test_split/training_data.md')
-    else:
-        training_data = load_data(
-            'model_files/model_dataset/data/'+dataset+'/nlu.md')
-    trainer = Trainer(config.load(
-        "model_files/model_config/"+dataset+"/config.yml"))
-    trainer.train(training_data)
-    try:
-        shutil.rmtree('model_files/model_weight/' + dataset)
-    except:
-        pass
+    nlu_data = paths.training_data_file(
+        dataset) if split else paths.nlu_file(dataset)
+    if not nlu_data.exists():
+        raise FileNotFoundError('Training data not found: {}'.format(nlu_data))
 
-    model_directory = trainer.persist('model_files/model_weight/' + dataset)
-    temp = model_directory.split('/')
-    if len(temp) > 1:
-        model_folder = temp[-1]
-    else:
-        temp = model_directory.split('\\')
-        model_folder = temp[-1]
-    with open('model_files/model_weight/'+dataset+'/latest_model_path.txt', 'w') as fh:
-        fh.write(model_folder)
+    config = paths.config_file(dataset)
+    if not config.exists():
+        raise FileNotFoundError('Pipeline config not found: {}'.format(config))
+
+    output = paths.weight_dir(dataset)
+    shutil.rmtree(output, ignore_errors=True)
+    output.mkdir(parents=True, exist_ok=True)
+
+    model = train_nlu(
+        config=str(config), nlu_data=str(nlu_data), output=str(output))
+    if model is None:
+        raise RuntimeError('Training failed; see the Rasa output above.')
+    print('Model saved to {}'.format(model))
 
     if split:
-        data_path = 'model_files/model_dataset/data/' + \
-            dataset+'/train_test_split/test_data.md'
-        output_path = 'model_files/model_performance/' + dataset
-        test(data_path, model_directory, output_path, successes=True,
-             errors=True, confmat='confmat.png', histogram='hist.png')
+        evaluate(model, paths.test_data_file(dataset),
+                 paths.performance_dir(dataset))
 
-
-def data_prepare(dataset):
-    try:
-        shutil.rmtree('model_files/model_dataset/data/' + dataset)
-    except:
-        pass
-    DataLoad(dataset)
-    string = 'rasa data split nlu -u model_files/model_dataset/data/{} --out model_files/model_dataset/data/{}/train_test_split'.format(
-        dataset, dataset)
-    os.system(string)
+    return model
 
 
 if __name__ == '__main__':
@@ -61,8 +63,13 @@ if __name__ == '__main__':
 
     parser.add_argument("--dataset", default='assistant', required=False,
                         type=str, help="Name of the dataset")
-    parser.add_argument("--split", default=False, required=False,
-                        type=bool, help="Data split")
+    add_split_argument(parser, "Split the data, train on the training half "
+                               "and evaluate on the held-out half")
     args = parser.parse_args()
-    data_prepare(args.dataset)
+
+    # config.yml points TensorBoard at a relative directory, so anchor the
+    # process to ml/ and the logs land in the same place however it was called.
+    os.chdir(paths.ML_DIR)
+
+    data_prepare(args.dataset, args.split)
     train(args.dataset, args.split)

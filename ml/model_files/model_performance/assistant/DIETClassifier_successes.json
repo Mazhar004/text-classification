@@ -1,5 +1,602 @@
 [
   {
+    "text": "search for usa vote",
+    "entities": [
+      {
+        "start": 11,
+        "end": 14,
+        "value": "usa",
+        "entity": "key_name"
+      },
+      {
+        "start": 15,
+        "end": 19,
+        "value": "vote",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 11,
+        "end": 14,
+        "confidence_entity": 0.7826122045516968,
+        "value": "usa",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "google search amir khan birthday",
+    "entities": [
+      {
+        "start": 14,
+        "end": 32,
+        "value": "amir khan birthday",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 14,
+        "end": 32,
+        "confidence_entity": 0.9934309124946594,
+        "value": "amir khan birthday",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "google search my ip address",
+    "entities": [
+      {
+        "start": 14,
+        "end": 16,
+        "value": "my",
+        "entity": "key_name"
+      },
+      {
+        "start": 17,
+        "end": 19,
+        "value": "ip",
+        "entity": "key_name"
+      },
+      {
+        "start": 20,
+        "end": 27,
+        "value": "address",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 14,
+        "end": 16,
+        "confidence_entity": 0.9998291730880737,
+        "value": "my",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 17,
+        "end": 19,
+        "confidence_entity": 0.9997504353523254,
+        "value": "ip",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 20,
+        "end": 27,
+        "confidence_entity": 0.9996429681777954,
+        "value": "address",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "my ip address",
+    "entities": [
+      {
+        "start": 0,
+        "end": 2,
+        "value": "my",
+        "entity": "key_name"
+      },
+      {
+        "start": 3,
+        "end": 5,
+        "value": "ip",
+        "entity": "key_name"
+      },
+      {
+        "start": 6,
+        "end": 13,
+        "value": "address",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 0,
+        "end": 2,
+        "confidence_entity": 0.9998064637184143,
+        "value": "my",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 3,
+        "end": 5,
+        "confidence_entity": 0.9998252987861633,
+        "value": "ip",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 6,
+        "end": 13,
+        "confidence_entity": 0.9997132420539856,
+        "value": "address",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "my current location",
+    "entities": [
+      {
+        "start": 0,
+        "end": 2,
+        "value": "my",
+        "entity": "key_name"
+      },
+      {
+        "start": 3,
+        "end": 10,
+        "value": "current",
+        "entity": "key_name"
+      },
+      {
+        "start": 11,
+        "end": 19,
+        "value": "location",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 0,
+        "end": 2,
+        "confidence_entity": 0.9998433589935303,
+        "value": "my",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 3,
+        "end": 10,
+        "confidence_entity": 0.9993583559989929,
+        "value": "current",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 11,
+        "end": 19,
+        "confidence_entity": 0.999667763710022,
+        "value": "location",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "tell me google my location",
+    "entities": [
+      {
+        "start": 15,
+        "end": 17,
+        "value": "my",
+        "entity": "key_name"
+      },
+      {
+        "start": 18,
+        "end": 26,
+        "value": "location",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 15,
+        "end": 17,
+        "confidence_entity": 0.9997729659080505,
+        "value": "my",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 18,
+        "end": 26,
+        "confidence_entity": 0.999414324760437,
+        "value": "location",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "who is elon mask",
+    "entities": [
+      {
+        "start": 7,
+        "end": 16,
+        "value": "elon mask",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 7,
+        "end": 16,
+        "confidence_entity": 0.9967216849327087,
+        "value": "elon mask",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "most earning movie",
+    "entities": [
+      {
+        "start": 0,
+        "end": 4,
+        "value": "most",
+        "entity": "key_name"
+      },
+      {
+        "start": 5,
+        "end": 12,
+        "value": "earning",
+        "entity": "key_name"
+      },
+      {
+        "start": 13,
+        "end": 18,
+        "value": "movie",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 0,
+        "end": 4,
+        "confidence_entity": 0.9998570680618286,
+        "value": "most",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 5,
+        "end": 12,
+        "confidence_entity": 0.9996343851089478,
+        "value": "earning",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 13,
+        "end": 18,
+        "confidence_entity": 0.9998072981834412,
+        "value": "movie",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "top earning movie",
+    "entities": [
+      {
+        "start": 0,
+        "end": 3,
+        "value": "top",
+        "entity": "key_name"
+      },
+      {
+        "start": 4,
+        "end": 11,
+        "value": "earning",
+        "entity": "key_name"
+      },
+      {
+        "start": 12,
+        "end": 17,
+        "value": "movie",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 0,
+        "end": 3,
+        "confidence_entity": 0.9996529817581177,
+        "value": "top",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 4,
+        "end": 11,
+        "confidence_entity": 0.9996517896652222,
+        "value": "earning",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 12,
+        "end": 17,
+        "confidence_entity": 0.9998170733451843,
+        "value": "movie",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "highest earning movie",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "highest",
+        "entity": "key_name"
+      },
+      {
+        "start": 8,
+        "end": 15,
+        "value": "earning",
+        "entity": "key_name"
+      },
+      {
+        "start": 16,
+        "end": 21,
+        "value": "movie",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 0,
+        "end": 7,
+        "confidence_entity": 0.8151017427444458,
+        "value": "highest",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 8,
+        "end": 15,
+        "confidence_entity": 0.9990463852882385,
+        "value": "earning",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 16,
+        "end": 21,
+        "confidence_entity": 0.999767005443573,
+        "value": "movie",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "tell me about bill gates",
+    "entities": [
+      {
+        "start": 14,
+        "end": 24,
+        "value": "bill gates",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 14,
+        "end": 24,
+        "confidence_entity": 0.995979905128479,
+        "value": "bill gates",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "who founded facebook",
+    "entities": [
+      {
+        "start": 4,
+        "end": 11,
+        "value": "founded",
+        "entity": "key_name"
+      },
+      {
+        "start": 12,
+        "end": 20,
+        "value": "facebook",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 4,
+        "end": 11,
+        "confidence_entity": 0.9997286200523376,
+        "value": "founded",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 12,
+        "end": 20,
+        "confidence_entity": 0.9996689558029175,
+        "value": "facebook",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "who is zukerburg",
+    "entities": [
+      {
+        "start": 7,
+        "end": 16,
+        "value": "zukerburg",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 7,
+        "end": 16,
+        "confidence_entity": 0.9996850490570068,
+        "value": "zukerburg",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "play hindi song",
+    "entities": [
+      {
+        "start": 5,
+        "end": 10,
+        "value": "hindi",
+        "entity": "key_name"
+      },
+      {
+        "start": 11,
+        "end": 15,
+        "value": "song",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 5,
+        "end": 10,
+        "confidence_entity": 0.9920204281806946,
+        "value": "hindi",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 11,
+        "end": 15,
+        "confidence_entity": 0.9994480013847351,
+        "value": "song",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
     "text": "play burj khalifa song",
     "entities": [
       {
@@ -18,10 +615,666 @@
     "predicted_entities": [
       {
         "entity": "key_name",
+        "start": 5,
+        "end": 9,
+        "confidence_entity": 0.8683000802993774,
+        "value": "burj",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "key_name",
         "start": 10,
         "end": 17,
+        "confidence_entity": 0.8935043215751648,
         "value": "khalifa",
         "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "key_name",
+        "start": 18,
+        "end": 22,
+        "confidence_entity": 0.9993218183517456,
+        "value": "song",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "play new hindi song",
+    "entities": [
+      {
+        "start": 5,
+        "end": 8,
+        "value": "new",
+        "entity": "key_name"
+      },
+      {
+        "start": 9,
+        "end": 14,
+        "value": "hindi",
+        "entity": "key_name"
+      },
+      {
+        "start": 15,
+        "end": 19,
+        "value": "song",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 5,
+        "end": 8,
+        "confidence_entity": 0.9993927478790283,
+        "value": "new",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 9,
+        "end": 14,
+        "confidence_entity": 0.99269038438797,
+        "value": "hindi",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 15,
+        "end": 19,
+        "confidence_entity": 0.9994648098945618,
+        "value": "song",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i want to see sawdesh movie trailer",
+    "entities": [
+      {
+        "start": 14,
+        "end": 21,
+        "value": "sawdesh",
+        "entity": "key_name"
+      },
+      {
+        "start": 22,
+        "end": 27,
+        "value": "movie",
+        "entity": "key_name"
+      },
+      {
+        "start": 28,
+        "end": 35,
+        "value": "trailer",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 14,
+        "end": 21,
+        "confidence_entity": 0.9998303651809692,
+        "value": "sawdesh",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 22,
+        "end": 27,
+        "confidence_entity": 0.9998470544815063,
+        "value": "movie",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 28,
+        "end": 35,
+        "confidence_entity": 0.9996011853218079,
+        "value": "trailer",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "3 idiots trailer",
+    "entities": [
+      {
+        "start": 0,
+        "end": 8,
+        "value": "3 idiots",
+        "entity": "key_name"
+      },
+      {
+        "start": 9,
+        "end": 16,
+        "value": "trailer",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 0,
+        "end": 1,
+        "confidence_entity": 0.8028022646903992,
+        "value": "3",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "key_name",
+        "start": 9,
+        "end": 16,
+        "confidence_entity": 0.9994966983795166,
+        "value": "trailer",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i want to listen faded song",
+    "entities": [
+      {
+        "start": 17,
+        "end": 22,
+        "value": "faded",
+        "entity": "key_name"
+      },
+      {
+        "start": 23,
+        "end": 27,
+        "value": "song",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 17,
+        "end": 22,
+        "confidence_entity": 0.9993008375167847,
+        "value": "faded",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 23,
+        "end": 27,
+        "confidence_entity": 0.9991390705108643,
+        "value": "song",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "open avenger trailer",
+    "entities": [
+      {
+        "start": 5,
+        "end": 12,
+        "value": "avenger",
+        "entity": "key_name"
+      },
+      {
+        "start": 13,
+        "end": 20,
+        "value": "trailer",
+        "entity": "key_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_name",
+        "start": 5,
+        "end": 12,
+        "confidence_entity": 0.999453604221344,
+        "value": "avenger",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_name",
+        "start": 13,
+        "end": 20,
+        "confidence_entity": 0.9994651675224304,
+        "value": "trailer",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "translate flabourgastre word to bengali",
+    "entities": [
+      {
+        "start": 10,
+        "end": 23,
+        "value": "flabourgastre",
+        "entity": "key_word"
+      },
+      {
+        "start": 32,
+        "end": 39,
+        "value": "bengali",
+        "entity": "key_word"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_word",
+        "start": 10,
+        "end": 23,
+        "confidence_entity": 0.99960857629776,
+        "value": "flabourgastre",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_word",
+        "start": 32,
+        "end": 39,
+        "confidence_entity": 0.9979377388954163,
+        "value": "bengali",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "translate flabourgastre word to bangla",
+    "entities": [
+      {
+        "start": 10,
+        "end": 23,
+        "value": "flabourgastre",
+        "entity": "key_word"
+      },
+      {
+        "start": 32,
+        "end": 38,
+        "value": "bangla",
+        "entity": "key_word"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_word",
+        "start": 10,
+        "end": 23,
+        "confidence_entity": 0.9996019005775452,
+        "value": "flabourgastre",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_word",
+        "start": 32,
+        "end": 38,
+        "confidence_entity": 0.9942080974578857,
+        "value": "bangla",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "meaning of comedy in bangla",
+    "entities": [
+      {
+        "start": 11,
+        "end": 17,
+        "value": "comedy",
+        "entity": "key_word"
+      },
+      {
+        "start": 21,
+        "end": 27,
+        "value": "bangla",
+        "entity": "key_word"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_word",
+        "start": 11,
+        "end": 17,
+        "confidence_entity": 0.9980227947235107,
+        "value": "comedy",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_word",
+        "start": 21,
+        "end": 27,
+        "confidence_entity": 0.9942412376403809,
+        "value": "bangla",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "meaning of rust in bengali",
+    "entities": [
+      {
+        "start": 11,
+        "end": 15,
+        "value": "rust",
+        "entity": "key_word"
+      },
+      {
+        "start": 19,
+        "end": 26,
+        "value": "bengali",
+        "entity": "key_word"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_word",
+        "start": 11,
+        "end": 15,
+        "confidence_entity": 0.9978151321411133,
+        "value": "rust",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_word",
+        "start": 19,
+        "end": 26,
+        "confidence_entity": 0.9980236291885376,
+        "value": "bengali",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "translate flabourgastre word to hindi",
+    "entities": [
+      {
+        "start": 10,
+        "end": 23,
+        "value": "flabourgastre",
+        "entity": "key_word"
+      },
+      {
+        "start": 32,
+        "end": 37,
+        "value": "hindi",
+        "entity": "key_word"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_word",
+        "start": 10,
+        "end": 23,
+        "confidence_entity": 0.9996059536933899,
+        "value": "flabourgastre",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_word",
+        "start": 32,
+        "end": 37,
+        "confidence_entity": 0.9963131546974182,
+        "value": "hindi",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "meaning of comedy in hindi",
+    "entities": [
+      {
+        "start": 11,
+        "end": 17,
+        "value": "comedy",
+        "entity": "key_word"
+      },
+      {
+        "start": 21,
+        "end": 26,
+        "value": "hindi",
+        "entity": "key_word"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_word",
+        "start": 11,
+        "end": 17,
+        "confidence_entity": 0.998023509979248,
+        "value": "comedy",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_word",
+        "start": 21,
+        "end": 26,
+        "confidence_entity": 0.9971016049385071,
+        "value": "hindi",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "meaning of rust in hindi",
+    "entities": [
+      {
+        "start": 11,
+        "end": 15,
+        "value": "rust",
+        "entity": "key_word"
+      },
+      {
+        "start": 19,
+        "end": 24,
+        "value": "hindi",
+        "entity": "key_word"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_word",
+        "start": 11,
+        "end": 15,
+        "confidence_entity": 0.9976928234100342,
+        "value": "rust",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_word",
+        "start": 19,
+        "end": 24,
+        "confidence_entity": 0.997000515460968,
+        "value": "hindi",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "locate farmgate",
+    "entities": [
+      {
+        "start": 7,
+        "end": 15,
+        "value": "farmgate",
+        "entity": "key_place"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_place",
+        "start": 7,
+        "end": 15,
+        "confidence_entity": 0.9989387392997742,
+        "value": "farmgate",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "locate khulna",
+    "entities": [
+      {
+        "start": 7,
+        "end": 13,
+        "value": "khulna",
+        "entity": "key_place"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_place",
+        "start": 7,
+        "end": 13,
+        "confidence_entity": 0.9980900883674622,
+        "value": "khulna",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "locate saidpur bangladesh",
+    "entities": [
+      {
+        "start": 7,
+        "end": 14,
+        "value": "saidpur",
+        "entity": "key_place"
+      },
+      {
+        "start": 15,
+        "end": 25,
+        "value": "bangladesh",
+        "entity": "key_place"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_place",
+        "start": 7,
+        "end": 14,
+        "confidence_entity": 0.999591052532196,
+        "value": "saidpur",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "key_place",
+        "start": 15,
+        "end": 25,
+        "confidence_entity": 0.997430145740509,
+        "value": "bangladesh",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "where is mirpur",
+    "entities": [
+      {
+        "start": 9,
+        "end": 15,
+        "value": "mirpur",
+        "entity": "key_place"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "key_place",
+        "start": 9,
+        "end": 15,
+        "confidence_entity": 0.997797966003418,
+        "value": "mirpur",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
       }
     ]
   }

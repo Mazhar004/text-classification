@@ -1,7 +1,7 @@
-locate dhaka farmgate area, google, key_place:farmgate, 0.42
+how many files i have in my drive, drive, , 0.61
 
-open my gmail, location, , 0.48
+open my gmail, gmail, , 1.0
 
-how many files i have in my drive, youtube, , 0.32
+locate dhaka farmgate area, location, key_name:dhaka||key_place:farmgate, 1.0
 
-play dhoom 2 trailer, youtube, key_name:dhoom||key_place:trailer, 0.38
+play dhoom 2 trailer, youtube, key_word:dhoom||key_name:2||key_name:trailer, 1.0

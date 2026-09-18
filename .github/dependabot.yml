@@ -1,0 +1,17 @@
+# Keeps the pinned dependencies under review so security advisories surface as
+# pull requests instead of only in the emailed alert digest.
+#
+# Note: most of this project's remaining advisories sit in packages that Rasa
+# 3.6.21 hard-pins, so those PRs will not be mergeable without dropping Rasa.
+# See the "Known residual risk" section of README.md.
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      python-dependencies:
+        patterns:
+          - "*"

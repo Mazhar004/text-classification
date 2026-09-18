@@ -1,66 +1,95 @@
 from datetime import datetime as dt
 import argparse
-import shutil
 import os
+import shutil
+
+# Custom
+import paths
+
+
+# os.path.altsep is None on POSIX, so it is filtered out rather than being
+# folded into '' -- an empty string is a substring of everything.
+PATH_SEPARATORS = tuple(s for s in (os.path.sep, os.path.altsep) if s)
+
+
+def safe_folder_name(name):
+    """Reject names that would escape the previous_version directory."""
+    if name and (any(sep in name for sep in PATH_SEPARATORS)
+                 or name in ('.', '..')):
+        raise ValueError(
+            'Invalid --foldername {!r}: it must be a single directory name '
+            'inside {}.'.format(name, paths.VERSION_DIR))
+    return name
 
 
 class DataStore():
+    """Back up or restore a dataset's data, config, weights and reports."""
+
     def __init__(self, dataset, foldername=""):
         self.dataset = dataset
-        self.foldername = foldername
+        self.foldername = safe_folder_name(foldername)
         self.time = dt.now().strftime("_%d_%b_%I_%M_%S_%p")
-        self.existed_folder = self.old_folder()
-        self.new_version = self.new_folder()
+
+        self.version_root = paths.VERSION_DIR / (
+            self.foldername or self.dataset + self.time)
+        self.slots = self.slot_pairs()
+
         if self.foldername == "":
             self.backup()
         else:
             self.restore()
 
-    def old_folder(self):
-        csv_sheet = 'model_files/model_dataset/csv/'
-        data_folder = 'model_files/model_dataset/data/' + self.dataset
-        config_folder = 'model_files/model_config/' + self.dataset
-        weight = 'model_files/model_weight/' + self.dataset
-        result = 'model_files/model_performance/' + self.dataset
+    def slot_pairs(self):
+        """(live path, archived path) for each item, CSV file first."""
+        dataset = self.dataset
+        root = self.version_root
 
-        return [csv_sheet, data_folder, config_folder, weight, result]
+        return [
+            (paths.csv_file(dataset), root / 'data' / (dataset + '.csv')),
+            (paths.data_dir(dataset), root / 'data' / 'data'),
+            (paths.CONFIG_DIR / dataset, root / 'config'),
+            (paths.weight_dir(dataset), root / 'weight'),
+            (paths.performance_dir(dataset), root / 'result'),
+        ]
 
-    def new_folder(self):
-        version_path = 'model_files/previous_version/'
-        if self.foldername == "":
-            bot_version = version_path + self.dataset + self.time + '/'
+    @staticmethod
+    def copy(source, destination):
+        if not source.exists():
+            print('Skipping missing {}'.format(source))
+            return
+
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        if source.is_dir():
+            shutil.rmtree(destination, ignore_errors=True)
+            shutil.copytree(source, destination)
         else:
-            bot_version = version_path + self.foldername + '/'
-        bot_version_csv = bot_version + 'data/'
-        bot_version_nlu = bot_version+'data/data'
-        bot_version_config = bot_version+'config/'
-        bot_version_weight = bot_version+'weight/'
-        bot_version_result = bot_version + 'result/'
-
-        os.makedirs(version_path, exist_ok=True)
-        os.makedirs(bot_version, exist_ok=True)
-        os.makedirs(bot_version_csv, exist_ok=True)
-
-        return [bot_version_csv, bot_version_nlu, bot_version_config, bot_version_weight, bot_version_result]
+            shutil.copy2(source, destination)
+        print('{} -> {}'.format(source, destination))
 
     def backup(self):
-        shutil.copy(self.existed_folder[0]+self.dataset +
-                    '.csv', self.new_version[0] + self.dataset + '.csv')
-        for i, j in zip(self.existed_folder[1:], self.new_version[1:]):
-            shutil.copytree(i, j)
+        if self.version_root.exists():
+            raise FileExistsError(
+                'Backup {} already exists.'.format(self.version_root))
+
+        for live, archived in self.slots:
+            self.copy(live, archived)
+        print('Backup written to {}'.format(self.version_root))
 
     def restore(self):
-        for i in self.existed_folder:
-            try:
-                shutil.rmtree(i)
-            except:
-                pass
-        os.makedirs(self.existed_folder[0], exist_ok=True)
+        if not self.version_root.is_dir():
+            raise FileNotFoundError(
+                'No backup at {}'.format(self.version_root))
 
-        shutil.copy(self.new_version[0]+self.dataset+'.csv',
-                    self.existed_folder[0]+self.dataset + '.csv')
-        for i, j in zip(self.new_version[1:], self.existed_folder[1:]):
-            shutil.copytree(i, j)
+        for live, archived in self.slots:
+            # Only the dataset's own CSV is removed -- the previous version of
+            # this script deleted the whole csv/ directory, taking every other
+            # dataset with it.
+            if live.is_dir():
+                shutil.rmtree(live, ignore_errors=True)
+            elif live.exists():
+                live.unlink()
+            self.copy(archived, live)
+        print('Restored {} from {}'.format(self.dataset, self.version_root))
 
 
 if __name__ == '__main__':
@@ -71,4 +100,5 @@ if __name__ == '__main__':
     parser.add_argument("--foldername", default="", required=False,
                         type=str, help="For restore type foldername")
     args = parser.parse_args()
+
     datastore = DataStore(args.dataset, args.foldername)
